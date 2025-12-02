@@ -1,0 +1,61 @@
+
+
+<div class="mb-3">
+    <h3 style="margin-left: 2%;">Create Custom forms here</h3>
+  </div>
+  
+  <form [formGroup]="form">
+    <div class="form-builder-wrapper">
+      <!-- Left side: Form fields -->
+      <div class="form-builder-left" cdkDropList (cdkDropListDropped)="drop($event)">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Form Name</mat-label>
+          <input matInput formControlName="form_name" placeholder="Enter form name">
+          <mat-error *ngIf="form.get('form_name')?.touched && form.get('form_name')?.hasError('required')">
+            Form name is required
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-card *ngFor="let field of formGroups; let i = index" [formGroup]="field" cdkDrag>
+          <div class="field-row">
+            <mat-form-field appearance="outline" class="flex-item">
+              <mat-label>Label</mat-label>
+              <input matInput formControlName="label">
+              <mat-error *ngIf="field.get('label')?.touched && field.get('label')?.hasError('required')">
+                Label is required
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="flex-item">
+              <mat-label>Type</mat-label>
+              <mat-select formControlName="type">
+                <mat-option value="text">Text</mat-option>
+                <mat-option value="number">Number</mat-option>
+                <mat-option value="date">Date</mat-option>
+                <mat-option value="password">Password</mat-option>
+              </mat-select>
+              <mat-error *ngIf="field.get('type')?.touched && field.get('type')?.hasError('required')">
+                Type is required
+              </mat-error>
+            </mat-form-field>
+  
+            <button mat-icon-button color="warn" (click)="removeField(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-card>
+      </div>
+  
+      <!-- Right side: Actions -->
+      <div class="form-builder-right">
+        <button mat-raised-button color="accent" (click)="addField()" style="width: 30%;">
+          <mat-icon>add</mat-icon> Add Field
+        </button>
+        <button mat-raised-button color="primary" (click)="saveForm()" style="width: 30%;">
+          <mat-icon>save</mat-icon> Save Form
+        </button>
+      </div>
+    </div>
+  </form>
+  
+

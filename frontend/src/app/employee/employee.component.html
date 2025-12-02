@@ -1,0 +1,55 @@
+<div class="container">
+  <h2>Create Employee</h2>
+
+  <!-- Select Form -->
+  <div class="employee-container">
+    <mat-form-field appearance="fill" class="employee-select">
+      <mat-label>Select Form</mat-label>
+      <mat-select (selectionChange)="onFormSelect($event.value)">
+        <mat-option *ngFor="let form of formData" [value]="form.id">
+          {{ form.form_name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+  </div>
+
+  <form *ngIf="selectedForm" [formGroup]="dynamicForm" (ngSubmit)="onSubmit()" class="employee-form">
+    <div *ngFor="let field of selectedForm.fields; let i = index">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ field.label }}</mat-label>
+  
+        <!-- Text -->
+        <input *ngIf="field.type === 'text'" matInput type="text" [formControlName]="field.label" />
+  
+        <!-- Number -->
+        <input *ngIf="field.type === 'number'" matInput type="number" [formControlName]="field.label" />
+  
+        <!-- Email -->
+        <input *ngIf="field.type === 'email'" matInput type="email" [formControlName]="field.label" />
+  
+        <!-- Password -->
+        <input *ngIf="field.type === 'password'" matInput type="password" [formControlName]="field.label" />
+
+        <!-- Date -->
+        <ng-container *ngIf="field.type === 'date'">
+          <input matInput [matDatepicker]="picker" [formControlName]="field.label" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
+        </ng-container>
+      </mat-form-field>
+
+
+
+  
+    </div>
+  
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
+  </form>
+
+  
+  
+</div>

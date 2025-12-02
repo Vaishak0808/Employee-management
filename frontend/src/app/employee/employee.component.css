@@ -1,0 +1,73 @@
+/* Page container */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
+.container h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #3f51b5;
+  margin-bottom: 25px;
+}
+
+/* Dropdown wrapper */
+.employee-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.employee-select {
+  width: 50%;
+  min-width: 280px;
+}
+
+/* Dynamic form styling */
+.employee-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Form fields */
+.form-field {
+  width: 100%;
+}
+
+/* Submit button */
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button[type="submit"] {
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent !important;  /* remove grey background */
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-select-trigger {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-select-value {
+  color: #000;  /* text color */
+  font-weight: 500;
+}
+
+::ng-deep .mat-select-arrow {
+  color: #000;  /* arrow color */
+}

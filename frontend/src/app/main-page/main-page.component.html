@@ -1,0 +1,24 @@
+
+<nav class="navbar">  
+    <ul class="nav-links" [class.active]="menuOpen">
+      <li class="dropdown">
+        <a routerLink="/forms" routerLinkActive="active">Forms</a>
+      </li>
+      <li class="dropdown">
+        <a  routerLinkActive="active">Registration</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-column">
+            <a routerLink="/employee">Create</a>
+            <a routerLink="/forms-list">List</a>
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <button mat-raised-button color="primary" (click) = Logout()>
+      Logout
+    </button>
+  </nav>
+
+
+<router-outlet></router-outlet>

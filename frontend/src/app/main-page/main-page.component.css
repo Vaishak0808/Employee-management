@@ -1,0 +1,213 @@
+/* General navbar styles */
+.navbar {
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    padding: 12px 24px;
+  }
+
+  
+  /* Row 1 for mobile */
+  .nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Logo */
+  .logo a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff3f6c;
+    text-decoration: none;
+  }
+  
+  /* Hamburger button */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+  }
+  .hamburger span {
+    height: 3px;
+    width: 22px;
+    background: #282c3f;
+    border-radius: 2px;
+  }
+  
+  /* Navigation links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links li {
+    position: relative;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: #282c3f;
+    font-weight: bolder;
+    /* padding: 8px 0; */
+  }
+  .nav-links a.active {
+    border-bottom: 2px solid #ff3f6c;
+  }
+  
+  /* Dropdown menu */
+  .dropdown-menu {
+    z-index: 100;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    padding: 20px 24px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none !important;
+    flex-direction: row;
+    gap: 30px; /* more gap between Topwear & Bottomwear columns */
+    min-width: max-content; /* grow to fit content */
+    width: auto; /* auto-size instead of fixed */
+  }
+
+  .dropdown-column h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #ff3f6c;
+  }
+
+  .dropdown-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* gap between links */
+    min-width: 150px; /* prevent columns from being too narrow */
+  }
+  .dropdown-column a {
+    font-weight: 100;
+    font-size: small;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: flex !important;
+  }
+  
+  /* Search bar */
+  .search-bar {
+    margin: 10px 0;
+  }
+  .search-bar input {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 100%;
+    max-width: 92%;
+  }
+  
+  /* Icons */
+  .icons {
+    display: flex;
+    gap: 16px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* ---------- Responsive Styles ---------- */
+  @media (max-width: 768px) {
+    /* Hamburger visible, menu hidden by default */
+    .hamburger {
+      display: flex;
+    }
+  
+    /* Stack layout for mobile */
+    .nav-links {
+        position: absolute;
+        top: 50px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 70%; /* Changed from 200px to full width */
+        height: 100%;;
+        padding: 20px;
+        transition: left 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 999;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+    .dropdown-menu {
+      position: static;
+      box-shadow: none;
+      padding: 10px 0;
+      flex-direction: column;
+    }
+  
+    /* Mobile: full-width search bar, icons below */
+    .search-bar {
+      order: 2;
+      width: 100%;
+    }
+    .search-bar input {
+      width: 100%;
+    }
+    .icons {
+      order: 3;
+      justify-content: center;
+    }
+  }
+  
+  /* Desktop: align all in a single row */
+  @media (min-width: 768px) {
+    .navbar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 24px;
+    }
+  
+    /* Keep logo fixed left */
+    .logo {
+      flex: 0 0 auto;
+      margin-right: 100px;
+    }
+  
+    /* Menu items right next to logo */
+    .nav-links {
+      flex: 0 0 auto;
+      display: flex;
+      gap: 40px;
+      justify-content: flex-start;
+    }
+  
+    /* Search bar expands to fill space between menu and icons */
+    .search-bar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      width: 100%;
+      max-width: 400px;
+    }
+  
+    /* Icons stay at far right */
+    .icons {
+      flex: 0 0 auto;
+      display: flex;
+      gap: 16px;
+      justify-content: flex-end;
+    }
+  
+    /* Hide hamburger in desktop */
+    .hamburger {
+      display: none;
+    }
+  }
+  .navbar button {
+    margin-left: auto;          /* pushes logout button to the far right */
+  }
+
+    /* NAVBAR ENDS */
